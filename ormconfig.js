@@ -1,5 +1,5 @@
-import './bootstrap';
-
+require ('./bootstrap');
+console.log(process.env.TYPEORM_MIGRATIONS)
 module.exports = {
   type: process.env.TYPEORM_CONNECTION,
   host: process.env.TYPEORM_HOST,
@@ -7,8 +7,9 @@ module.exports = {
   username: process.env.TYPEORM_USERNAME,
   password: process.env.TYPEORM_PASSWORD,
   database: process.env.TYPEORM_DATABASE,
-  migrations: process.env.TYPEFORM_MIGRATIONS,
+  entities: [process.env.TYPEORM_ENTITIES],
+  migrations: [process.env.TYPEORM_MIGRATIONS],
   cli: {
-    migrationsDir: process.env.TYPEFORM_MIGRATIONS_DIR,
+    migrationsDir: process.env.TYPEORM_MIGRATIONS_DIR,
   }
 }
